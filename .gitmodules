@@ -1,0 +1,6 @@
+[submodule "ExampleWebServer"]
+	path = ExampleWebServer
+	url = https://github.com/eng-thesis/example-web-server.git
+[submodule "reverse-proxy"]
+	path = reverse-proxy
+	url = https://github.com/eng-thesis/nginx-infra-reverse-proxy.git
