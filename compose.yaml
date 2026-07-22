@@ -3,11 +3,10 @@ services:
     image: rabbitmq:3-management
     ports:
       - "8080:15672"
-    environment:
-      RABBITMQ_DEFAULT_USER: "user"
-      RABBITMQ_DEFAULT_PASS: "zaq1@WSX"
-    container_name: "rabbitmq"
-    hostname: "rabbitmq"
+    env_file:
+      - .env.rabbitmq
+    container_name: rabbitmq
+    hostname: rabbitmq
     networks:
       - test-network
   hypervisor:
@@ -16,10 +15,8 @@ services:
       dockerfile: Dockerfile
     container_name: hypervisor
     restart: always
-    environment:
-      RABBITMQ_HOST: "rabbitmq"
-      RABBITMQ_USER: "user"
-      RABBITMQ_PASS: "zaq1@WSX"
+    env_file:
+      - .env.hv
     networks:
       - test-network
     volumes:
